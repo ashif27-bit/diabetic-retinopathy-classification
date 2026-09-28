@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RetinaCare AI | Diabetic Retinopathy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="bg-shape shape-one"></div>
+  <div class="bg-shape shape-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span class="brand-icon">◉</span>
+      <span>RetinaCare <b>AI</b></span>
+    </a>
+    <span class="badge">ML MINI PROJECT</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">AI-ASSISTED RETINAL SCREENING</p>
+        <h1>Diabetic Retinopathy<br><span>Classification</span></h1>
+        <p class="hero-text">
+          Upload a retinal fundus image and explore a simple machine-learning classification workflow.
+        </p>
+        <div class="stats">
+          <div><strong>5</strong><span>Classes</span></div>
+          <div><strong>ML</strong><span>Model</span></div>
+          <div><strong>24/7</strong><span>Demo UI</span></div>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="retina-ring"><div class="retina-core"></div></div>
+        <div class="orbit orbit-a"></div>
+        <div class="orbit orbit-b"></div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="card upload-card">
+        <div class="card-head">
+          <div>
+            <p class="mini-label">STEP 01</p>
+            <h2>Upload retinal image</h2>
+          </div>
+          <span class="step">1 / 2</span>
+        </div>
+
+        <label class="dropzone" id="dropzone">
+          <input type="file" id="image" accept=".jpg,.jpeg,.png">
+          <div class="upload-icon">↑</div>
+          <h3>Choose an image</h3>
+          <p>JPG, JPEG or PNG · Maximum 10 MB</p>
+          <span class="browse">Browse file</span>
+        </label>
+
+        <div class="preview-box" id="preview">
+          <div class="preview-empty">Image preview will appear here</div>
+        </div>
+
+        <button class="primary-btn" id="predictBtn" disabled>
+          <span>Analyze Image</span><span>→</span>
+        </button>
+        <p class="tiny-note">For academic demonstration only. Not a medical diagnosis.</p>
+      </div>
+
+      <div class="card result-card">
+        <div class="card-head">
+          <div>
+            <p class="mini-label">STEP 02</p>
+            <h2>Classification result</h2>
+          </div>
+          <span class="status-dot" id="statusDot"></span>
+        </div>
+
+        <div class="result-placeholder" id="resultPlaceholder">
+          <div class="scan-icon">✦</div>
+          <h3>Waiting for an image</h3>
+          <p>Your prediction will appear here after analysis.</p>
+        </div>
+
+        <div class="result-content hidden" id="resultContent">
+          <div class="result-top">
+            <span class="result-label">PREDICTED CLASS</span>
+            <span class="risk-pill" id="riskPill">LOW</span>
+          </div>
+          <h3 id="prediction">—</h3>
+          <p id="description">—</p>
+
+          <div class="confidence">
+            <div class="confidence-row">
+              <span>Model confidence</span>
+              <strong id="confidenceText">0%</strong>
+            </div>
+            <div class="progress"><span id="confidenceBar"></span></div>
+          </div>
+
+          <div class="result-image-wrap">
+            <img id="resultImage" alt="Uploaded retinal image">
+          </div>
+
+          <div class="demo-warning" id="demoWarning">
+            Demo mode is active because no trained model file was found.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="classes">
+      <div class="section-title">
+        <div>
+          <p class="mini-label">CLASSIFICATION LEVELS</p>
+          <h2>Five possible categories</h2>
+        </div>
+      </div>
+      <div class="class-grid">
+        <div class="class-item"><span>01</span><b>No DR</b><small>No obvious signs</small></div>
+        <div class="class-item"><span>02</span><b>Mild</b><small>Early changes</small></div>
+        <div class="class-item"><span>03</span><b>Moderate</b><small>Moderate changes</small></div>
+        <div class="class-item"><span>04</span><b>Severe</b><small>Advanced changes</small></div>
+        <div class="class-item"><span>05</span><b>Proliferative</b><small>Advanced stage</small></div>
+      </div>
+    </section>
+
+    <section class="info-grid">
+      <div class="info-card">
+        <span class="info-icon">◎</span>
+        <div><h3>Project workflow</h3><p>Image → preprocessing → feature extraction → ML classification → result.</p></div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">!</span>
+        <div><h3>Important</h3><p>This mini project is for learning and demonstration, not clinical decision-making.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>RetinaCare AI · Academic Mini Project</span>
+    <span>Flask + Python + Machine Learning</span>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
